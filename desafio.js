@@ -1,6 +1,5 @@
 // Imports
 var fs = require('fs');
-var _ = require('lodash');
 var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance(),
     PNF = require('google-libphonenumber').PhoneNumberFormat,
     PNT = require('google-libphonenumber').PhoneNumberType;

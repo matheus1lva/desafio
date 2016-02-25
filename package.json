@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "google-libphonenumber": "^1.0.13",
+    "lodash": "^4.5.1",
     "validator": "^5.0.0"
   }
 }

@@ -7,45 +7,6 @@
                     "Responsável",
                     "Pai"
                 ],
-                "address": "johndoepai1@gmail.com"
-            },
-            {
-                "type": "phone",
-                "tags": [
-                    "Responsável",
-                    "Mãe"
-                ],
-                "address": "551138839332"
-            },
-            {
-                "type": "email",
-                "tags": [
-                    "Mãe"
-                ],
-                "address": "johndoemae1@gmail.com"
-            },
-            {
-                "type": "email",
-                "tags": [
-                    "Aluno"
-                ],
-                "address": "johndoealuno1@gmail.com"
-            }
-        ],
-        "fullname": "John Doe 1",
-        "eid": "2",
-        "class": "Sala 3",
-        "invisible": true,
-        "see_all": false
-    },
-    {
-        "addresses": [
-            {
-                "type": "email",
-                "tags": [
-                    "Responsável",
-                    "Pai"
-                ],
                 "address": "johndoepai2@gmail.com"
             },
             {
@@ -81,19 +42,26 @@
             {
                 "type": "email",
                 "tags": [
-                    "Aluno"
+                    "Aluno",
+                    "Responsável",
+                    "Pai",
+                    "Mãe"
                 ],
-                "address": ""
+                "address": "johndoealuno1@gmail.com"
             }
+        ],
+        "class": [
+            "Sala 4",
+            "Sala 5",
+            "Sala 6",
+            "Sala 1",
+            "Sala 2",
+            "Sala 3"
         ],
         "fullname": "John Doe 1",
         "eid": "2",
-        "class": [
-            "Sala 5",
-            "Sala 6"
-        ],
-        "invisible": false,
-        "see_all": true
+        "invisible": true,
+        "see_all": false
     },
     {
         "addresses": [
@@ -157,9 +125,12 @@
                 "address": "551974430033"
             }
         ],
+        "class": [
+            "Sala 6",
+            "Sala 7"
+        ],
         "fullname": "Victor Doe 3",
         "eid": "2",
-        "class": "Sala 7",
         "invisible": false,
         "see_all": false
     }

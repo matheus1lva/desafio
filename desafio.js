@@ -1,8 +1,6 @@
 // Imports
 var fs = require('fs');
 var _ = require('lodash');
-var extend = require('util')._extend;
-var R = require('ramda');
 var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance(),
     PNF = require('google-libphonenumber').PhoneNumberFormat,
     PNT = require('google-libphonenumber').PhoneNumberType;
@@ -82,31 +80,25 @@ function fillOthers(conteudo, header) {
     }
 }
 
-function mergeEVERYTHING(contentA) {
+function mergeObjectsWithSameElement(contentA) {
     var mergedJSON = [];
     var currentElement, oldElement;
     contentA.forEach(function(elemento) {
         currentElement = elemento;
         if (oldElement !== undefined) {
             if (currentElement["fullname"] === oldElement["fullname"]) {
-                // console.log("CURRENT ELEMENT: "+ JSON.stringify(currentElement, null, 4));
-                // console.log("OLD ELEMENT : "+ JSON.stringify(oldElement, null, 4));
-                var tempObject = mergeObjects(currentElement, oldElement);
-                console.log(JSON.stringify(tempObject, null, 4));
-                //mergedJSON.push(tempObject);
+                var tempObject = concatObjectsAndArrays(currentElement, oldElement);
+                mergedJSON.push(tempObject);
             } else {
                 mergedJSON.push(elemento);
             }
-
         }
         oldElement = elemento;
     });
 
     return mergedJSON;
 }
-// Assumes that target and source are either objects (Object or Array) or undefined
-// Since will be used to convert to JSON, just reference objects where possible
-function mergeObjects(target, source) {
+function concatObjectsAndArrays(target, source) {
     var item, tItem, o, idx;
     if (typeof source == 'undefined') {
         return source;
@@ -116,27 +108,22 @@ function mergeObjects(target, source) {
 
     for (var prop in source) {
         item = source[prop];
-        //        console.log("ITEM:> "+ JSON.stringify(item, null, 4));
         //check if the first element is indeed an object.
         if (typeof item == 'object' && item !== null) {
             //if the first item is an array
             if (_.isArray(item) && item.length) {
                 //dealing with array of primitives
-                //console.log("SOU UM ARRAY");
                 if (typeof item[0] != 'object') {
-                    // console.log("SOU UM ARRAY de primitivas (string, etc...)");
                     item.forEach(function(conteudo) {
                         //push to the target all the elements;
                         target[prop].push(conteudo);
                     });
                 } else {
-                    //console.log("SOU UM ARRAY de objetos");
                     //dealing with array of objects;
                     var targetArray = [];
                     var sourceArray = [];
                     for (i = 0; i < item.length; i++) {
                         idx = {};
-                        //    console.log("ITEM: " + JSON.stringify(item[i], null, 4) + " - TARGET " + JSON.stringify(target[prop][i], null, 4));
                         if (_.isEqual(item[i], target[prop][i])) {
                             targetArray.push(item[i]);
                         } else {
@@ -144,64 +131,21 @@ function mergeObjects(target, source) {
                             targetArray.push(target[prop][i]);
                         }
                     }
-                    //console.log(JSON.stringify(targetArray, null, 4));
                     target[prop] = targetArray;
                 }
             } else {
                 //if its a normal object
-                mergeObjects(target[prop], item);
+                concatObjectsAndArrays(target[prop], item);
             }
 
-        } else if(prop.startsWith("invisible") || prop.startsWith("see_all")) {
+        } else if (prop.startsWith("invisible") || prop.startsWith("see_all")) {
             // item is a primitive, just copy it over
-            var resultOfSum = !!(target[prop]+item);
+            var resultOfSum = !!(target[prop] + item);
             target[prop] = resultOfSum;
         }
     }
     return target;
 }
-
-// function mergeObjects(target, source){
-//     var item, tItem, o, idx;
-//     if (typeof source == 'undefined') {
-//       return source;
-//     } else if (typeof target == 'undefined') {
-//       return target;
-//     }
-//
-//     for (var prop in source) {
-//         item = source[prop];
-//         //check if the first element is indeed an object.
-//         if (typeof item == 'object' && item !== null) {
-//             //if the first item is an array
-//           if (_.isArray(item) && item.length) {
-//               //dealing with array of primitives
-//               if (typeof item[0] != 'object') {
-//                   item.forEach(function(conteudo){
-//                       //push to the target all the elements;
-//                       target[prop].push(conteudo);
-//                   });
-//               }else{
-//                 //dealing with array of objects;
-//                 for(var attr in item){
-//                     idx = {};
-//                     tItem = target[attr]
-//                     mergeObjects(tItem,item);
-//                 }
-//               }
-//           }//if its a normal object
-//           else {
-//            // deal with object
-//            mergeObjects(target[prop],item);
-//          }
-//
-//         } else {
-//              // item is a primitive, just copy it over
-//              target[prop] = item;
-//            }
-//     }
-//     return target;
-// }
 // End Functions
 var f = fs.readFileSync('./alunos.csv', {
     encoding: 'utf-8'
@@ -223,11 +167,11 @@ f.forEach(function(entry) {
     temp["class"] = [];
     for (i = 0; i < headers.length; i++) {
         if (line[i] !== undefined) {
-            var tempLine = line[i].replace(/"/g, "").replace(":)", "").replace("hahaha", "").trim();
+            var tempLine = line[i].replace(/"/g, "").replace(":)", "").replace("hahaha", "");
             if (headers[i].indexOf("fullname") >= 0) {
                 temp[headers[i]] = tempLine;
             } else if (headers[i].startsWith("eid")) {
-                temp[headers[i]] = tempLine[i];
+                temp[headers[i]] = tempLine;
             } else if (headers[i].startsWith("class")) {
                 classes = trataClasses(tempLine);
                 if (classes.length > 0) {
@@ -251,10 +195,11 @@ f.forEach(function(entry) {
     }
     finalJSON.push(temp);
 });
+//just a console log if you want to see in the console whats going on.
 //console.log(JSON.stringify(finalJSON, null, 4));
-finalJSON = mergeEVERYTHING(finalJSON);
-// fs.writeFile("./resultado.json", JSON.stringify(finalJSON, null, 4), function(error) {
-//     if (error) {
-//         throw error;
-//     }
-// });
+finalJSON = mergeObjectsWithSameElement(finalJSON);
+fs.writeFile("./resultado.json", JSON.stringify(finalJSON, null, 4), function(error) {
+    if (error) {
+        throw error;
+    }
+});

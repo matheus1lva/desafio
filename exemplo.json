@@ -58,4 +58,48 @@
   }],
   "invisible": true,
   "see_all": true
-},
+}, {
+  "fullname": "Mary Doe 2",
+  "eid": "1235",
+  "classes": "Sala 1",
+  "addresses": [{
+    "type": "email",
+    "tags": [
+      "Responsável",
+      "Pai"
+    ],
+    "address": "marydoe1@gmail.com"
+  }],
+  "invisible": false,
+  "see_all": false
+}, {
+  "fullname": "Victor Doe 3",
+  "eid": "1236",
+  "classes": [
+    "Sala 6",
+    "Sala 7"
+  ],
+  "addresses": [{
+    "type": "email",
+    "tags": [
+      "Responsável",
+      "Pai"
+    ],
+    "address": "victordoepai1@hotmail.com"
+  }, {
+    "type": "email",
+    "tags": [
+      "Mãe",
+      "Aluno"
+    ],
+    "address": "victordoe3@gmail.com"
+  }, {
+    "type": "phone",
+    "tags": [
+      "Aluno"
+    ],
+    "address": "551974430033"
+  }],
+  "invisible": false,
+  "see_all": false
+}]

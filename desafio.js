@@ -143,40 +143,6 @@ function mergeObjects(target, source) {
                             targetArray.push(item[i]);
                             targetArray.push(target[prop][i]);
                         }
-                        // for(var attr in item[i]){
-                        //     tItem = target[prop][i][attr];
-                        //     var sourceItem = source[prop][i][attr];
-                        //     console.log("TITEM AT ["+prop+"]["+i+"]["+attr+"] ===>" + require('util').inspect(tItem, {showHidden:true, depth:null}));
-                        //     console.log("SOURCE ITEM AT ["+prop+"]["+i+"]["+attr+"] ===> " + require('util').inspect(sourceItem, {showHidden:true, depth:null}));
-                        //     if(_.isArray(tItem) && _.isArray(source[attr])){
-                        //         console.log("AMBOS SOMOS ARRAYS");
-                        //         tItem.concat(source[attr]);
-                        //         idx[attr] = tItem;
-                        //     }else if(_.isArray(tItem) && !_.isArray(sourceItem)){
-                        //         console.log("APENAS O OLD ELEMENT NAO É ARRAY");
-                        //         tItem.push(source[attr]);
-                        //         idx[attr] = tItem;
-                        //     }else if(typeof tItem !== "object" && typeof sourceItem !== "object" && tItem !== sourceItem){
-                        //         console.log("ESTES AQUI SAO O QUE SAO DIFERENTES: " + tItem + " E : " + sourceItem);
-                        //         var idx2 = extend({}, idx);
-                        //         console.log("ESTE é O IDX2 " + JSON.stringify(idx2, null, 4));
-                        //         idx2[attr] = sourceItem;
-                        //         console.log("ESTE é O IDX2 DEPOIS DE ALTERADO O ENDERECO" + JSON.stringify(idx2, null, 4));
-                        //         targetArray.push(idx2);
-                        //
-                        //
-                        //         idx[attr] = tItem;
-                        //     }
-                        //     else{
-                        //         console.log("ESTOU SOU EU CASO NAO SEJA NADA");
-                        //         idx[attr] = tItem;
-                        //     }
-                        //     console.log("ESTOU SOU O NOVO EU --->" + JSON.stringify(idx, null, 4));
-                        //
-                        // }
-                        // targetArray.push(idx);
-                        // console.log("ESTE AQUI É PRA ONDE ESTÃO INDO TODAS AS COISAS " + JSON.stringify(targetArray, null, 4));
-
                     }
                     //console.log(JSON.stringify(targetArray, null, 4));
                     target[prop] = targetArray;

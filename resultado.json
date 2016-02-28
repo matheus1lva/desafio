@@ -1,51 +1,36 @@
 [
     {
-        /*"addresses": [
+        "addresses": [
+            {
+                "type": "phone",
+                "tags": [
+                    "Responsável",
+                    "Mãe"
+                ],
+                "address": "551138839332"
+            },
             {
                 "type": "email",
                 "tags": [
                     "Responsável",
                     "Pai"
                 ],
-                "address": "johndoepai1@gmail.com "
-            },*/
-            // {
-            //     "type": "email",
-            //     "tags": [
-            //         "Responsável",
-            //         "Pai"
-            //     ],
-            //     "address": "johndoepai2@gmail.com"
-            // },
-            // {
-            //     "type": "phone",
-            //     "tags": [
-            //         "Responsável",
-            //         "Mãe"
-            //     ],
-            //     "address": "551138839332"
-            // },
-            // {
-            //     "type": "email",
-            //     "tags": [
-            //         "Responsável",
-            //         "Pai"
-            //     ],
-            //     "address": "johndoepai3@gmail.com"
-            // },
-            // {
-            //     "type": "email",
-            //     "tags": [
-            //         "Mãe"
-            //     ],
-            //     "address": "johndoemae1@gmail.com"
-            // },
+                "address": "johndoepai2@gmail.com"
+            },
             {
-                "type": "phone",
+                "type": "email",
                 "tags": [
+                    "Mãe"
+                ],
+                "address": "johndoemae1@gmail.com"
+            },
+            {
+                "type": "email",
+                "tags": [
+                    "Responsável",
                     "Pai"
                 ],
-                "address": "5519985504400"
+                "address": "johndoepai3@gmail.com"
             },
             {
                 "type": "email",
@@ -53,6 +38,13 @@
                     "Aluno"
                 ],
                 "address": "johndoealuno1@gmail.com"
+            },
+            {
+                "type": "phone",
+                "tags": [
+                    "Pai"
+                ],
+                "address": "5519985504400"
             },
             {
                 "type": "phone",
@@ -85,20 +77,6 @@
                     "Pai"
                 ],
                 "address": "marydoe1@gmail.com"
-            },
-            {
-                "type": "email",
-                "tags": [
-                    "Mãe"
-                ],
-                "address": ""
-            },
-            {
-                "type": "email",
-                "tags": [
-                    "Aluno"
-                ],
-                "address": ""
             }
         ],
         "fullname": "Mary Doe 2",

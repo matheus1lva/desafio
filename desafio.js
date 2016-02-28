@@ -184,35 +184,35 @@ var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance(),
                         });
                     } else {
                         //dealing with array of objects;
-                        var targetArray = [];
-                        //var targetArray = item.concat(target[prop]);
-                        var sourceArray = [];
+                        //var targetArray = [];
+                        var targetArray = item.concat(target[prop]);
+                        //var sourceArray = [];
                         //console.log("TARGET -> " + JSON.stringify(item, null, 4));
                         //console.log("source -> " + JSON.stringify(target[prop], null, 4));
-                        for (i = 0; i < target[prop].length; i++) {
-                            var sItem;
-                            var tempObjeto = {};
-                            tItem = target[prop][i];
-                            sItem = item[i];
-                            if(sItem !== undefined && tItem !== undefined){
-                                if (_.isEqual(tItem, sItem)) {
-                                    targetArray.push(sItem);
-                                } else {
-                                    var objetoConcatenado = specificMerge(sItem, tItem);
-                                    if(objetoConcatenado !== undefined && _.isObject(objetoConcatenado)){
-                                        tempArray.push(objetoConcatenado);
-                                    }else if(checkHasArray(sItem) && checkHasArray(tItem)){
-                                        var mergedObject = mergeObjectsWithArraysInside(sItem, tItem);
-                                        if(_.isArray(mergedObject)){
-                                            targetArray = targetArray.concat(mergedObject);
-                                        }else if(_.isObject(mergedObjects)){
-                                            targetArray.push(mergeObjects);
-                                        }
-                                    }
-                                }
-                            }else if(sItem === undefined && tItem !== undefined){
-                                targetArray.push(tItem);
-                            }
+                        // for (i = 0; i < target[prop].length; i++) {
+                        //     var sItem;
+                        //     var tempObjeto = {};
+                        //     tItem = target[prop][i];
+                        //     sItem = item[i];
+                        //     if(sItem !== undefined && tItem !== undefined){
+                        //         if (_.isEqual(tItem, sItem)) {
+                        //             targetArray.push(sItem);
+                        //         } else {
+                        //             var objetoConcatenado = specificMerge(sItem, tItem);
+                        //             if(objetoConcatenado !== undefined && _.isObject(objetoConcatenado)){
+                        //                 tempArray.push(objetoConcatenado);
+                        //             }else if(checkHasArray(sItem) && checkHasArray(tItem)){
+                        //                 var mergedObject = mergeObjectsWithArraysInside(sItem, tItem);
+                        //                 if(_.isArray(mergedObject)){
+                        //                     targetArray = targetArray.concat(mergedObject);
+                        //                 }else if(_.isObject(mergedObjects)){
+                        //                     targetArray.push(mergeObjects);
+                        //                 }
+                        //             }
+                        //         }
+                        //     }else if(sItem === undefined && tItem !== undefined){
+                        //         targetArray.push(tItem);
+                        //     }
 
                             //console.log("TARGET -> " + JSON.stringify(item[i], null, 4));
                             //console.log("source -> " + JSON.stringify(target[prop][i], null, 4));
@@ -228,7 +228,7 @@ var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance(),
                             //     targetArray.push(item[i]);
                             //     targetArray.push(target[prop][i]);
                             // }
-                        }
+                        //}
                         //console.log(targetArray);
                         target[prop] = targetArray;
                     }

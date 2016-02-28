@@ -12,6 +12,20 @@
             {
                 "type": "email",
                 "tags": [
+                    "Mãe"
+                ],
+                "address": "johndoemae1@gmail.com"
+            },
+            {
+                "type": "email",
+                "tags": [
+                    "Aluno"
+                ],
+                "address": "johndoealuno1@gmail.com"
+            },
+            {
+                "type": "email",
+                "tags": [
                     "Responsável",
                     "Pai"
                 ],
@@ -20,24 +34,10 @@
             {
                 "type": "email",
                 "tags": [
-                    "Mãe"
-                ],
-                "address": "johndoemae1@gmail.com"
-            },
-            {
-                "type": "email",
-                "tags": [
                     "Responsável",
                     "Pai"
                 ],
                 "address": "johndoepai3@gmail.com"
-            },
-            {
-                "type": "email",
-                "tags": [
-                    "Aluno"
-                ],
-                "address": "johndoealuno1@gmail.com"
             },
             {
                 "type": "phone",

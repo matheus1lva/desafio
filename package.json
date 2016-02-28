@@ -1,15 +1,31 @@
 {
-  "name": "desafio",
+  "name": "desafio-class-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "project developed to answer the challenge made by samin",
+  "main": "desafio.js",
+  "dependencies": {
+    "google-libphonenumber": "^1.0.14",
+    "lodash": "^4.5.1",
+    "validator": "^5.0.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlayMa256/desafio.git"
+  },
+  "keywords": [
+    "json",
+    "csv",
+    "manipulation",
+    "parser"
+  ],
+  "author": "Matheus Gonçalves da Silva",
   "license": "ISC",
-  "dependencies": {
-    "google-libphonenumber": "^1.0.13",
-    "lodash": "^4.5.1"
-  }
+  "bugs": {
+    "url": "https://github.com/PlayMa256/desafio/issues"
+  },
+  "homepage": "https://github.com/PlayMa256/desafio#readme"
 }

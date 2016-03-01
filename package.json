@@ -6,6 +6,7 @@
   "dependencies": {
     "google-libphonenumber": "^1.0.14",
     "lodash": "^4.5.1",
+    "ramda": "^0.19.1",
     "validator": "^5.0.0"
   },
   "devDependencies": {},

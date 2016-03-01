@@ -1,7 +1,22 @@
 [
     {
         "addresses": [
-
+            {
+                "type": "email",
+                "tags": [
+                    "Responsável",
+                    "Pai"
+                ],
+                "address": "johndoepai2@gmail.com"
+            },
+            {
+                "type": "email",
+                "tags": [
+                    "Responsável",
+                    "Pai"
+                ],
+                "address": "johndoepai3@gmail.com"
+            },
             {
                 "type": "phone",
                 "tags": [
@@ -16,6 +31,28 @@
                     "Mãe"
                 ],
                 "address": "551138839333"
+            },
+            {
+                "type": "phone",
+                "tags": [
+                    "Responsável",
+                    "Mãe"
+                ],
+                "address": "551138839332"
+            },
+            {
+                "type": "email",
+                "tags": [
+                    "Mãe"
+                ],
+                "address": "johndoemae1@gmail.com"
+            },
+            {
+                "type": "email",
+                "tags": [
+                    "Aluno"
+                ],
+                "address": "johndoealuno1@gmail.com"
             }
         ],
         "classes": [
@@ -41,6 +78,9 @@
                 ],
                 "address": "marydoe1@gmail.com"
             }
+        ],
+        "classes": [
+            "Sala 1"
         ],
         "fullname": "Mary Doe 2",
         "eid": "1235",
